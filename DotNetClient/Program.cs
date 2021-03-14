@@ -42,7 +42,7 @@ public class DotNetClient
 
             if (receivedByteCount > 0)
             {
-                Console.Write(Encoding.Unicode.GetString(message, 0, receivedByteCount));
+                Console.Write(Encoding.ASCII.GetString(message, 0, receivedByteCount));
             }
         }
     }
@@ -66,6 +66,7 @@ public class DotNetClient
 
             TcpClient = new TcpClient();
 
+            Console.WriteLine();
             Console.WriteLine("Connection Lost.");
 
             await Start();
