@@ -95,3 +95,5 @@ public class DotNetClient
         }
     }
 }
+
+//mozo //todo setcursorposition
