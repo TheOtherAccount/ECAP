@@ -29,11 +29,16 @@ namespace DotNetServer
 
         private static bool IsSending { get; set; }
 
+        static char? GetNextMessage()
+        {
+            return Messages.Count > 0 ? Messages.Dequeue() : null;
+        }
+
         static async Task Send()
         {
             IsSending = true;
 
-            char? message = ConnectedClients.Count > 0 && Messages.Count > 0 ? Messages.Dequeue() : null;
+            char? message = GetNextMessage();
 
             while (message != null)
             {
@@ -46,7 +51,7 @@ namespace DotNetServer
                     await ns.WriteAsync(messageToSend, 0, messageToSend.Length);
                 }
 
-                message = ConnectedClients.Count > 0 && Messages.Count > 0 ? Messages.Dequeue() : null;
+                message = GetNextMessage();
             }
 
             IsSending = false;
@@ -56,7 +61,7 @@ namespace DotNetServer
         {
             await Task.Run(Listen);
 
-            Console.WriteLine("Type your letters..");
+            Console.WriteLine("Please start typing.. (control keys are not allowed)");
 
             while (true)
             {
