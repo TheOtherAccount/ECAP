@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -31,19 +30,19 @@ public class TcpTimeClient
 
     private static async Task GetMessages()
     {
-        Console.WriteLine($"Started receiving messages..");
+        Console.WriteLine("Started receiving messages..");
 
         NetworkStream ns = TcpClient.GetStream();
 
         while (true)
         {
-            byte[] message = new byte[1024];
+            var message = new byte[2];
 
-            int receivedByteCount = await ns.ReadAsync(message, 0, message.Length);
+            var receivedByteCount = await ns.ReadAsync(message, 0, message.Length);
 
             if (receivedByteCount > 0)
             {
-                Console.Write(Encoding.ASCII.GetString(message, 0, receivedByteCount));
+                Console.Write(Encoding.Unicode.GetString(message, 0, receivedByteCount));
             }
         }
     }
@@ -67,7 +66,7 @@ public class TcpTimeClient
 
             TcpClient = new TcpClient();
 
-            Console.WriteLine();
+            Console.WriteLine("Connection Lost.");
 
             await Start();
         }
