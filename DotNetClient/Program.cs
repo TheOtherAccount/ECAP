@@ -36,7 +36,7 @@ public class DotNetClient
 
         while (true)
         {
-            var message = new byte[2];
+            var message = new byte[1];
 
             var receivedByteCount = await ns.ReadAsync(message, 0, message.Length);
 
