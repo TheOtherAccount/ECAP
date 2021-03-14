@@ -13,4 +13,3 @@ C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.dll
 C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\ref\DotNetServer.dll
 C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.pdb
 C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.genruntimeconfig.cache
-C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.csprojAssemblyReference.cache
