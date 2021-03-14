@@ -1,0 +1,16 @@
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\bin\Debug\net5.0\DotNetServer.exe
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\bin\Debug\net5.0\DotNetServer.deps.json
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\bin\Debug\net5.0\DotNetServer.runtimeconfig.json
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\bin\Debug\net5.0\DotNetServer.runtimeconfig.dev.json
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\bin\Debug\net5.0\DotNetServer.dll
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\bin\Debug\net5.0\ref\DotNetServer.dll
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\bin\Debug\net5.0\DotNetServer.pdb
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.AssemblyInfoInputs.cache
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.AssemblyInfo.cs
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.csproj.CoreCompileInputs.cache
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.dll
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\ref\DotNetServer.dll
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.pdb
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.genruntimeconfig.cache
+C:\Users\Moutaz\source\repos\ECAP\DotNetServer\obj\Debug\net5.0\DotNetServer.csprojAssemblyReference.cache
