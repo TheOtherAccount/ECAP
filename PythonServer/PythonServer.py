@@ -1,9 +1,12 @@
 import msvcrt
 import socket
 from collections import deque
+import threading
+import sys
 
 portNumber = 6060
 
+isSendingMessages = False
 connectedClients = []
 messageQueue = deque()
 
@@ -11,23 +14,38 @@ theStocket = socket.socket()
 theStocket.bind(('', portNumber))
 theStocket.listen()
 
-print('Please start typing.. and hit ESC when you want to exit.')
+def acceptConnections():
+	while True:
+		conn, addr = theStocket.accept()
+		connectedClients.append(conn)
 
-#while True:
-#	conn, addr = theStocket.accept()
-#	connectedClients.append(conn)
+print('Please start typing..')
 
-#conn.sendall('5'.encode("utf-16-le"))
+connectionsThread = threading.Thread(target=acceptConnections)
+connectionsThread.start()
 
+def getNextMessage():
+	if(len(messageQueue) > 0):
+		return messageQueue.popleft()
+
+def sendMessages():
+	isSendingMessages = True
+
+	message = getNextMessage()
+
+	while(message != None):
+		for client in connectedClients:
+			client.sendall(message.encode("ascii"))
+		message = getNextMessage()
+
+	isSendingMessages = False
 
 
 while True:
-	theKey = msvcrt.getch()
-	keyNumber = ord(theKey)
-	if(keyNumber == 27):
-		break
-	elif(keyNumber > 0 and keyNumber < 128 and keyNumber != 13):
-		theChar = chr(keyNumber)
-		messageQueue.append(theChar)
+	theChar = chr(ord(msvcrt.getch()))
+	if(theChar.isalnum()):
 		print(theChar, end='')
-		sendMessages()
+		if(len(connectedClients) > 0):
+			messageQueue.append(theChar)	
+			if(isSendingMessages == False):
+				sendMessages()
