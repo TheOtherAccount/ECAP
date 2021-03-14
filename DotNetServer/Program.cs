@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -42,14 +43,25 @@ namespace DotNetServer
 
             while (message != null)
             {
+                List<TcpClient> failedClients = new List<TcpClient>();
+
                 foreach (var client in ConnectedClients)
                 {
                     NetworkStream ns = client.GetStream();
 
                     byte[] messageToSend = Encoding.Unicode.GetBytes(message.ToString());
 
-                    await ns.WriteAsync(messageToSend, 0, messageToSend.Length);
+                    try
+                    {
+                        await ns.WriteAsync(messageToSend, 0, messageToSend.Length);
+                    }
+                    catch
+                    {
+                        failedClients.Add(client);
+                    }
                 }
+
+                ConnectedClients = ConnectedClients.Except(failedClients).ToList();
 
                 message = GetNextMessage();
             }
@@ -61,7 +73,7 @@ namespace DotNetServer
         {
             await Task.Run(Listen);
 
-            Console.WriteLine("Please start typing.. (control keys are not allowed)");
+            Console.WriteLine("Please start typing..");
 
             while (true)
             {

@@ -2,7 +2,6 @@ import msvcrt
 import socket
 from collections import deque
 import threading
-import sys
 
 portNumber = 6060
 
