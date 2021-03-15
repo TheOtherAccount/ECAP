@@ -1,0 +1,7 @@
+services:
+  dotnetclient:
+    build:
+      context: C:\Users\Moutaz\source\repos\ECAP
+      dockerfile: DotNetClient\Dockerfile
+    image: dotnetclient
+version: '3.4'

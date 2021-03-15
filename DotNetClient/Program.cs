@@ -24,6 +24,7 @@ public class DotNetClient
 
             Console.Write(i);
 
+            //todo //mozo await Task.Delay(1000);
             Thread.Sleep(1000);
         }
     }

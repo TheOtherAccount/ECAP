@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cF/giiFJNu4aK5ZhI1nlAnvki+9WwKSyUk9GmCPPhFBjhS79D1C6m7nudjoznV0NTvl23Eie26OK1arYnIXRZg==",
+  "dgSpecHash": "kWaH72h1Exaz+IN0beMufwLMAsxnWi8mRnjaTigsNnosg4NOY9yxoaalVyKfn9f9csDkWtJgznVhTOWwNH4zUg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Moutaz\\source\\repos\\ECAP\\DotNetClient\\DotNetClient.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Moutaz\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.13\\microsoft.visualstudio.azure.containers.tools.targets.1.10.13.nupkg.sha512"
+  ],
   "logs": []
 }

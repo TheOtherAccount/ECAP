@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  dotnetclient:
+    image: ${DOCKER_REGISTRY-}dotnetclient
+    build:
+      context: .
+      dockerfile: DotNetClient\Dockerfile

@@ -13,3 +13,4 @@ C:\Users\Moutaz\source\repos\ECAP\DotNetClient\obj\Debug\net5.0\DotNetClient.dll
 C:\Users\Moutaz\source\repos\ECAP\DotNetClient\obj\Debug\net5.0\ref\DotNetClient.dll
 C:\Users\Moutaz\source\repos\ECAP\DotNetClient\obj\Debug\net5.0\DotNetClient.pdb
 C:\Users\Moutaz\source\repos\ECAP\DotNetClient\obj\Debug\net5.0\DotNetClient.genruntimeconfig.cache
+C:\Users\Moutaz\source\repos\ECAP\DotNetClient\obj\Debug\net5.0\DotNetClient.csprojAssemblyReference.cache
