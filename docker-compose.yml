@@ -6,3 +6,8 @@ services:
     build:
       context: .
       dockerfile: DotNetClient\Dockerfile
+  pythonserver:
+    image: ${DOCKER_REGISTRY-}pythonserver  
+    build:
+      context: .
+      dockerfile: PythonServer\Dockerfile
