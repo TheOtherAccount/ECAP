@@ -12,7 +12,7 @@ public class DotNetClient
 
         Console.WriteLine($"Connecting to the server..");
 
-        await TcpClient.ConnectAsync("epac_host", 6060);
+        await TcpClient.ConnectAsync("ecap_host", 6060);
 
         Console.WriteLine($"Connected successfully.");
     }
