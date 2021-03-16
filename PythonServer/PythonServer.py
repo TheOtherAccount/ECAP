@@ -1,8 +1,7 @@
 from Getch import Getch
 
 from collections import deque
-import threading
-import socket
+import threading, os, socket
 
 portNumber = 6060
 
@@ -23,7 +22,8 @@ def acceptConnections():
 		conn, addr = theStocket.accept()
 		connectedClients.append(conn)
 
-print('Please start typing..')
+print('ECAP Python Server Started.\r\n')
+print('Please start typing or hit ESC to exit.')
 
 connectionsThread = threading.Thread(target=acceptConnections)
 connectionsThread.start()
@@ -58,10 +58,13 @@ def sendMessages():
 getch = Getch()
 
 while True:
-	theChar = chr(ord(getch()))
-	if(theChar.isprintable()):
-		print(theChar, end='')
+	keyCode = ord(getch())
+	keyChar = chr(keyCode)
+	if(keyChar.isprintable()):
+		print(keyChar, end='')
 		if(len(connectedClients) > 0):
-			messageQueue.append(theChar)	
+			messageQueue.append(keyChar)	
 			if(isSendingMessages == False):
 				sendMessages()
+	elif(keyCode == 27):
+		os._exit(1)

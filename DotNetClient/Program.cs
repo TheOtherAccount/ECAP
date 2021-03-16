@@ -8,9 +8,11 @@ public class DotNetClient
 {
     private static async Task Connect()
     {
+        Console.WriteLine();
+
         Console.WriteLine($"Connecting to the server..");
 
-        await TcpClient.ConnectAsync("localhost", 6060);
+        await TcpClient.ConnectAsync("epac_host", 6060);
 
         Console.WriteLine($"Connected successfully.");
     }
@@ -91,8 +93,6 @@ public class DotNetClient
                 Console.Write($"Couldn't connect to the server. Trying again in {RetryDuration}");
 
                 CountDown();
-
-                Console.WriteLine();
             }
         }
     }

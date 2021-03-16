@@ -4,6 +4,6 @@ WORKDIR /usr/src/app
 
 RUN pip install keyboard
 
-COPY PythonServer/PythonServer.py .
+COPY *.py .
 
 CMD [ "python", "-u", "./PythonServer.py" ]
