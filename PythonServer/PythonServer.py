@@ -29,8 +29,6 @@ def getNextMessage():
 	if(len(messageQueue) > 0):
 		return messageQueue.popleft()
 
-
-
 def sendMessages():
 	isSendingMessages = True
 
@@ -40,6 +38,8 @@ def sendMessages():
 		for client in connectedClients:
 			try:
 				client.sendall(message.encode("ascii"))
+			except:
+				pass
 		message = getNextMessage()
 
 	isSendingMessages = False
