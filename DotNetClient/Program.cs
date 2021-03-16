@@ -6,17 +6,7 @@ using System.Threading.Tasks;
 
 public class DotNetClient
 {
-    private static async Task Connect()
-    {
-        Console.WriteLine();
-
-        Console.WriteLine($"Connecting to the server..");
-
-        await TcpClient.ConnectAsync("ecap_host", 6060);
-
-        Console.WriteLine($"Connected successfully.");
-    }
-    private static TcpClient TcpClient { get; set; } = new TcpClient();
+    private static TcpClient TcpClient { get; set; } 
     private static int RetryDuration { get; set; } = 3;
     private static void CountDown()
     {
@@ -30,8 +20,7 @@ public class DotNetClient
             Thread.Sleep(1000);
         }
     }
-
-    private static async Task GetMessages()
+    private static async Task KeepReadingMessages()
     {
         Console.WriteLine("Started receiving messages..");
 
@@ -47,6 +36,10 @@ public class DotNetClient
             {
                 Console.Write(Encoding.ASCII.GetString(message, 0, receivedByteCount));
             }
+            else
+            {
+                return;
+            }
         }
     }
 
@@ -61,9 +54,9 @@ public class DotNetClient
 
         try
         {
-            await GetMessages();
+            await KeepReadingMessages();
         }
-        catch
+        finally
         {
             TcpClient.Close();
 
@@ -80,7 +73,18 @@ public class DotNetClient
     {
         try
         {
-            await Connect();
+            Console.WriteLine();
+
+            Console.WriteLine($"Connecting to the server..");
+
+            if (TcpClient == null)
+            {
+                TcpClient = new TcpClient();
+            }
+
+            await TcpClient.ConnectAsync("ecap_server", 6060);
+
+            Console.WriteLine($"Connected successfully.");
         }
         catch
         {

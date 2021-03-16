@@ -30,6 +30,7 @@ def getNextMessage():
 		return messageQueue.popleft()
 
 def sendMessages():
+
 	isSendingMessages = True
 
 	message = getNextMessage()
