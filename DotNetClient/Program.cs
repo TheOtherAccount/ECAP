@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-public class DotNetClient
+
+
+public class Program
 {
     private static TcpClient TcpClient { get; set; } 
     private static int RetryDuration { get; set; } = 3;
-    private static void CountDown()
+    private async static Task CountDown()
     {
         for (var i = RetryDuration; i > 0; i--)
         {
@@ -16,8 +19,7 @@ public class DotNetClient
 
             Console.Write(i);
 
-            //todo //mozo await Task.Delay(1000);
-            Thread.Sleep(1000);
+            await Task.Delay(1000);
         }
     }
     private static async Task KeepReadingMessages()
@@ -90,7 +92,7 @@ public class DotNetClient
         {
             Console.Write($"Couldn't connect to the server. Trying again in {RetryDuration}");
 
-            CountDown();
+            await CountDown();
 
             await TryConnect();
         }
