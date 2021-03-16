@@ -8,9 +8,6 @@ portNumber = 6060
 isSendingMessages = False
 connectedClients = []
 
-global failedClients
-failedClients = []
-
 messageQueue = deque()
 
 theStocket = socket.socket()
@@ -32,12 +29,7 @@ def getNextMessage():
 	if(len(messageQueue) > 0):
 		return messageQueue.popleft()
 
-def removeFailedClients():
-	global failedClients
 
-	for failedClient in failedClients:
-		connectedClients.remove(failedClient)
-	failedClients = [];
 
 def sendMessages():
 	isSendingMessages = True
@@ -48,10 +40,7 @@ def sendMessages():
 		for client in connectedClients:
 			try:
 				client.sendall(message.encode("ascii"))
-			except:
-				failedClients.append(client)
 		message = getNextMessage()
-		removeFailedClients()
 
 	isSendingMessages = False
 

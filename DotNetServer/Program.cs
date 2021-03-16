@@ -43,8 +43,6 @@ namespace DotNetServer
 
             while (message != null)
             {
-                List<TcpClient> failedClients = new List<TcpClient>();
-
                 foreach (var client in ConnectedClients)
                 {
                     NetworkStream ns = client.GetStream();
@@ -57,11 +55,9 @@ namespace DotNetServer
                     }
                     catch
                     {
-                        failedClients.Add(client);
+                        
                     }
                 }
-
-                ConnectedClients = ConnectedClients.Except(failedClients).ToList();
 
                 message = GetNextMessage();
             }
