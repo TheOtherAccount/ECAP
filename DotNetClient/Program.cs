@@ -78,22 +78,17 @@ public class DotNetClient
 
     public static async Task TryConnect()
     {
-        bool connected = false;
-
-        while (!connected)
+        try
         {
-            try
-            {
-                await Connect();
+            await Connect();
+        }
+        catch
+        {
+            Console.Write($"Couldn't connect to the server. Trying again in {RetryDuration}");
 
-                connected = true;
-            }
-            catch
-            {
-                Console.Write($"Couldn't connect to the server. Trying again in {RetryDuration}");
+            CountDown();
 
-                CountDown();
-            }
+            await TryConnect();
         }
     }
 }
