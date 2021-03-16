@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Getch.py" />
     <Compile Include="PythonServer.py" />
   </ItemGroup>
   <ItemGroup>

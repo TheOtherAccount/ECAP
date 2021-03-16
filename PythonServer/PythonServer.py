@@ -1,7 +1,8 @@
-import msvcrt
-import socket
+from Getch import Getch
+
 from collections import deque
 import threading
+import socket
 
 portNumber = 6060
 
@@ -54,8 +55,10 @@ def sendMessages():
 
 	isSendingMessages = False
 
+getch = Getch()
+
 while True:
-	theChar = chr(ord(msvcrt.getch()))
+	theChar = chr(ord(getch()))
 	if(theChar.isprintable()):
 		print(theChar, end='')
 		if(len(connectedClients) > 0):
