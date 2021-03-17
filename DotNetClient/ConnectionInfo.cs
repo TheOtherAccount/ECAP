@@ -6,10 +6,18 @@ using System.Collections.Generic;
 /// </summary>
 public class ConnectionInfo
 {
+    /// <summary>
+    /// The default host name when there is no one provided as an argument.
+    /// </summary>
     private const string DefaultHostName = "ecap_server";
+    /// <summary>
+    /// The default host name while debugging when there is no other one provided as an argument.
+    /// </summary>
     private const string DefaultDebugHostName = "localhost";
+    /// <summary>
+    /// The default port number when there is not one provided as an argument.
+    /// </summary>
     private const int DefaultPortNumber = 6060;
-
     /// <summary>
     /// The DNS Name, IP Address or the Computer Name/Alias.
     /// </summary>
@@ -49,9 +57,7 @@ public class ConnectionInfo
     /// Instanitates an object with property values based on the specified dictionary.
     /// </summary>
     /// <param name="args">An optional dictionary that holds the property values.. e.g. hostName
-    /// Typically you get it by parsing the command line arguments.
-    /// The default hostName while debugging is: localhost; but on release it is : ecap_server.
-    /// The default portNumber is 6060</param>
+    /// Typically you get it by parsing the command line arguments.</param>
     public ConnectionInfo(Dictionary<string, string> args = null)
     {
         string hostName = null;
