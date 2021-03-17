@@ -2,9 +2,9 @@
 Hi there,
 
 The following shot shows the server and multiple clients running:
+![The server and two clients](screen-shot.gif)
 
-
-To run it on your environment:
+To run them on your environment:
 
 1. Open a CMD and clone the repository: 
 ```sh
@@ -38,4 +38,4 @@ Now you have the server running but no clients yet; you can run as many clients 
 docker run -it --rm --network=ecap_network dotnetclient
 ```
 
-Now when you go to the server and hit any printable key you should see it on all the clients running.
+Now when you go to the server and hit any printable key you should see it on all the running clients.
