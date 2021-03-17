@@ -22,7 +22,7 @@ public class Program
         ecapClient.Connecting += (sender, e) => Console.WriteLine($"Connecting to {ecapClient.ConnectionInfo}..");
         ecapClient.ConnectionEstablished += (sender, e) => Console.WriteLine("Connection Established. Waiting new messages..");
         ecapClient.ConnectionLost += (sender, e) => Console.WriteLine($"\r\nConnection to {ecapClient.ConnectionInfo} Lost.");
-        ecapClient.ConnectionRefused += (sender, e) => Console.Write($"Couldn't connect to {ecapClient.ConnectionInfo}.");
+        ecapClient.ConnectionRefused += (sender, e) => Console.WriteLine($"Couldn't connect to {ecapClient.ConnectionInfo}.");
         #endregion
 
         ecapClient.MessageReceived += (sender, e) => Console.Write(e.Message);
