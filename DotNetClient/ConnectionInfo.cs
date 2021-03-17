@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 public class ConnectionInfo
 {
+    public int RetryDuration { get; set; } = 3;
     public string HostName { get; set; }
     public int PortNumber { get; set; }
 
