@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetServer", "DotNetServer\DotNetServer.csproj", "{FCAB582B-2115-4B92-896B-900E3B84B609}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetClient", "DotNetClient\DotNetClient.csproj", "{F4EA6782-8220-4F3E-8C2A-5962902DF519}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonServer", "PythonServer\PythonServer.pyproj", "{958EE9BB-8588-46BA-A73E-79B4178D055E}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FCAB582B-2115-4B92-896B-900E3B84B609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCAB582B-2115-4B92-896B-900E3B84B609}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCAB582B-2115-4B92-896B-900E3B84B609}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCAB582B-2115-4B92-896B-900E3B84B609}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F4EA6782-8220-4F3E-8C2A-5962902DF519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F4EA6782-8220-4F3E-8C2A-5962902DF519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4EA6782-8220-4F3E-8C2A-5962902DF519}.Release|Any CPU.ActiveCfg = Release|Any CPU
