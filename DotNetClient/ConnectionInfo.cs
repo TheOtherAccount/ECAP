@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 public class ConnectionInfo
 {
-    public int RetryDuration { get; set; } = 3;
     public string HostName { get; set; }
     public int PortNumber { get; set; }
+
+    public override string ToString()
+    {
+        return $"{HostName} on {PortNumber}";
+    }
 
     public ConnectionInfo(string hostName, int portNumber)
     {
         HostName = hostName;
         PortNumber = portNumber;
+    }
+
+    public static ConnectionInfo FromArgs(string[] args)
+    {
+        return new ConnectionInfo(Utils.ParseCommandLineArguments(args));
     }
 
     public ConnectionInfo(Dictionary<string, string> args = null)

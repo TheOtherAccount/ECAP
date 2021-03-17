@@ -117,8 +117,6 @@ public class ECAPClient
             ConnectionRefused(this, args);
         }
 
-        await Task.Delay(ConnectionInfo.RetryDuration);
-
         await Connect();
     }
 }
