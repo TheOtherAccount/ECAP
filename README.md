@@ -16,22 +16,24 @@ git clone https://github.com/TheOtherAccount/ECAP.git
 docker network create ecap_network
 ```
 
-3. Build the server and run it on current terminal: 
+3. Build an image for the server app: 
 ```sh
 docker build -t pythonserver ECAP\PythonServer\
-docker run -it --rm --name=pythonserver --network-alias=ecap_server --network=ecap_network pythonserver
 ```
 
-Now you have the server running but no clients yet; To build an image for the client app, please use the following:
-
-4. Open a new CMD and build an image for the client app:
+4. Build an image for the client app:
 ```sh
 docker build -t dotnetclient ECAP\DotNetClient\
 ```
 
-Now you can run as many client apps as you want by using the following command:
+5. Run the server and attached it to the current terminal:
+```sh
+docker run -it --rm --name=pythonserver --network-alias=ecap_server --network=ecap_network pythonserver
+```
 
-5. For each client app you want to run.. open a new CMD and then:
+Now you have the server running but no clients yet; you can run as many clients as you want by using the following:
+
+6. For each client app you want to run.. open a new CMD and then:
 ```sh
 docker run -it --rm --network=ecap_network dotnetclient
 ```
