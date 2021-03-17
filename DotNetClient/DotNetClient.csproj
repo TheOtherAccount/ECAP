@@ -14,4 +14,8 @@
     <None Remove="..\.dockerignore" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClientBCL\ClientBCL.csproj" />
+  </ItemGroup>
+
 </Project>

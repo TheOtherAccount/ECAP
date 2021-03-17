@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientBCL;
+using System;
 using System.Threading.Tasks;
 /// <summary>
 /// The main entry point of the application.
