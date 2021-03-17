@@ -2,6 +2,7 @@
 Hi there,
 
 The following shot shows the server and multiple clients running:
+
 ![The server and two clients](screen-shot.gif)
 
 To run them on your environment:
@@ -26,7 +27,7 @@ docker build -t pythonserver ECAP\PythonServer\
 docker build -t dotnetclient ECAP\DotNetClient\
 ```
 
-5. Run the server and attached it to the current terminal:
+5. Run the server attached to the current terminal:
 ```sh
 docker run -it --rm --name=pythonserver --network-alias=ecap_server --network=ecap_network pythonserver
 ```
