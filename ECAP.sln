@@ -9,6 +9,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonServer", "PythonServe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientBCLTest", "ClientBCLTest\ClientBCLTest.csproj", "{FF0DFD28-AB9B-4E15-89C6-05C147A80A27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientBCL", "ClientBCL\ClientBCL.csproj", "{FAD4354A-8C97-412F-9B27-55B52FA21A92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{FF0DFD28-AB9B-4E15-89C6-05C147A80A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF0DFD28-AB9B-4E15-89C6-05C147A80A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF0DFD28-AB9B-4E15-89C6-05C147A80A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD4354A-8C97-412F-9B27-55B52FA21A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD4354A-8C97-412F-9B27-55B52FA21A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD4354A-8C97-412F-9B27-55B52FA21A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD4354A-8C97-412F-9B27-55B52FA21A92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
