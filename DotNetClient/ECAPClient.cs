@@ -24,11 +24,6 @@ public class ECAPClient
 
     public async Task Start()
     {
-        if (tcpClient == null)
-        {
-            tcpClient = new TcpClient();
-        }
-
         await Connect();
     }
 
@@ -37,6 +32,8 @@ public class ECAPClient
         try
         {
             OnConnecting(EventArgs.Empty);
+
+            tcpClient = new TcpClient();
 
             await tcpClient.ConnectAsync(ConnectionInfo.HostName, ConnectionInfo.PortNumber);
 
@@ -55,8 +52,16 @@ public class ECAPClient
         while (true)
         {
             var message = new byte[1];
+            int receivedByteCount = 0;
 
-            var receivedByteCount = await ns.ReadAsync(message, 0, message.Length);
+            try
+            {
+                receivedByteCount = await ns.ReadAsync(message, 0, message.Length);
+            }
+            catch 
+            {
+                await OnConnectionLost(EventArgs.Empty);
+            }
 
             if (receivedByteCount > 0)
             {
@@ -66,9 +71,6 @@ public class ECAPClient
             }
             else
             {
-                tcpClient.Close();
-                tcpClient = new TcpClient();
-
                 await OnConnectionLost(EventArgs.Empty);
             }
         }
@@ -76,6 +78,8 @@ public class ECAPClient
 
     protected virtual async Task OnConnectionLost(EventArgs args)
     {
+        tcpClient.Close();
+
         if (ConnectionLost != null)
         {
             ConnectionLost(this, args);
@@ -116,6 +120,8 @@ public class ECAPClient
         {
             ConnectionRefused(this, args);
         }
+
+        await Task.Delay(500);
 
         await Connect();
     }
