@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>958ee9bb-8588-46ba-a73e-79b4178d055e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PythonServer.py</StartupFile>
+    <StartupFile>Program.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,8 +21,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ECAPServer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Getch.py" />
-    <Compile Include="PythonServer.py" />
+    <Compile Include="Program.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dockerfile" />

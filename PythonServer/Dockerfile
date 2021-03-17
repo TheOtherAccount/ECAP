@@ -6,4 +6,4 @@ RUN pip install keyboard
 
 COPY *.py .
 
-CMD [ "python", "-u", "./PythonServer.py" ]
+CMD [ "python", "-u", "./Program.py" ]
