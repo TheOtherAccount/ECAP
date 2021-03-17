@@ -11,15 +11,15 @@ namespace ClientBCL
         /// <summary>
         /// The default host name when there is no one provided as an argument.
         /// </summary>
-        private const string DefaultHostName = "ecap_server";
+        public string DefaultHostName => "ecap_server";
         /// <summary>
         /// The default host name while debugging when there is no other one provided as an argument.
         /// </summary>
-        private const string DefaultDebugHostName = "localhost";
+        public string DefaultDebugHostName => "localhost";
         /// <summary>
         /// The default port number when there is not one provided as an argument.
         /// </summary>
-        private const int DefaultPortNumber = 6060;
+        public int DefaultPortNumber => 6060;
         /// <summary>
         /// The DNS Name, IP Address or the Computer Name/Alias.
         /// </summary>
