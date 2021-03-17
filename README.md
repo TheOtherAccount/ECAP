@@ -6,9 +6,9 @@ The following shot shows the server and multiple clients running:
 
 To run it on your environment:
 
- 1. Clone the repository: 
-     `git clone https://github.com/TheOtherAccount/ECAP.git`
-     cd ECAP
+1. Clone the repository: 
+`git clone https://github.com/TheOtherAccount/ECAP.git`
+`cd ECAP`
 
 cd pythonserver
 docker build -t pythonserver .
