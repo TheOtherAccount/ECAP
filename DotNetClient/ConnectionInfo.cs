@@ -42,10 +42,12 @@ public class ConnectionInfo
         return new ConnectionInfo(Utils.ParseCommandLineArguments(args));
     }
     /// <summary>
-    /// Instanitates an object based with property values based on the specified dictionary.
+    /// Instanitates an object with property values based on the specified dictionary.
     /// </summary>
     /// <param name="args">An optional dictionary that holds the property values.. e.g. hostName
-    /// Typically you get it by parsing the command line arguments.</param>
+    /// Typically you get it by parsing the command line arguments.
+    /// The default hostName while debugging is: localhost; but on release it is : ecap_server.
+    /// The default portNumber is 6060</param>
     public ConnectionInfo(Dictionary<string, string> args = null)
     {
         string hostName = null;
