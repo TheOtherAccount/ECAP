@@ -6,6 +6,10 @@ using System.Collections.Generic;
 /// </summary>
 public class ConnectionInfo
 {
+    private const string DefaultHostName = "ecap_server";
+    private const string DefaultDebugHostName = "localhost";
+    private const int DefaultPortNumber = 6060;
+
     /// <summary>
     /// The DNS Name, IP Address or the Computer Name/Alias.
     /// </summary>
@@ -61,15 +65,15 @@ public class ConnectionInfo
 
         if (string.IsNullOrWhiteSpace(hostName))
         {
-            hostName = "ecap_server";
+            hostName = DefaultHostName;
 #if DEBUG
-            hostName = "localhost";
+            hostName = DefaultDebugHostName;
 #endif
         }
 
         if (string.IsNullOrWhiteSpace(portNumber))
         {
-            portNumber = "6060";
+            portNumber = DefaultPortNumber.ToString();
         }
 
         if (!int.TryParse(portNumber, out int parsedPortNumber))
