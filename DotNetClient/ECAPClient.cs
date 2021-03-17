@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 public class ECAPClient
 {
     /// <summary>
-    /// The main tcpClient object used for the communication.
+    /// The main TcpClient object used for the communication.
     /// </summary>
     private static TcpClient tcpClient;
     /// <summary>
