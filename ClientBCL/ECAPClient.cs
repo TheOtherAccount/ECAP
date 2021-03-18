@@ -11,6 +11,10 @@ namespace ClientBCL
     public class ECAPClient
     {
         /// <summary>
+        /// When set to true (the default value).. it tries connecting again when the connection is refused or lost.
+        /// </summary>
+        public bool RetryWhenFails { get; set; } = true;
+        /// <summary>
         /// The main TcpClient object used for the communication.
         /// </summary>
         private static TcpClient tcpClient;
@@ -51,6 +55,15 @@ namespace ClientBCL
         public ECAPClient(ConnectionInfo connectionInfo)
         {
             ConnectionInfo = connectionInfo;
+        }
+        /// <summary>
+        /// Starts connecting again after a short delay (500 ms).
+        /// </summary>
+        private async Task StartOver()
+        {
+            await Task.Delay(500);
+
+            await Connect();
         }
         /// <summary>
         /// Tries to establish a connection with the server.
@@ -117,9 +130,10 @@ namespace ClientBCL
                 ConnectionLost(this, args);
             }
 
-            await Task.Delay(500);
-
-            await Connect();
+            if (RetryWhenFails)
+            {
+                await StartOver();
+            }
         }
         /// <summary>
         /// Raises the event and starts receiving the messages.
@@ -164,9 +178,10 @@ namespace ClientBCL
                 ConnectionRefused(this, args);
             }
 
-            await Task.Delay(500);
-
-            await Connect();
+            if (RetryWhenFails)
+            {
+                await StartOver();
+            }
         }
     }
 }

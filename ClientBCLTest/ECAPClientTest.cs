@@ -9,13 +9,13 @@ namespace ClientBCLTest
     public class ECAPClientTest
     {
         [TestMethod]
-        public async Task TestNormalConstructor()
+        public async Task TestNoServer()
         {
-            ECAPClient client = new ECAPClient(new ConnectionInfo());
+            ECAPClient client = new ECAPClient(new ConnectionInfo() { }) { RetryWhenFails = false };
 
             bool failed = false;
 
-            client.ConnectionRefused += (sender, e) => { failed = false; };
+            client.ConnectionRefused += (sender, e) => { failed = true; };
 
             await client.Connect();
 
