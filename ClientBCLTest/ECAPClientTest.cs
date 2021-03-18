@@ -1,18 +1,22 @@
 ﻿using ClientBCL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace ClientBCLTest
 {
+    /// <summary>
+    /// Tests for the ECAP Client.
+    /// </summary>
     [TestClass]
     public class ECAPClientTest
     {
+        /// <summary>
+        /// Testing when there is no server available.
+        /// </summary>
         [TestMethod]
         public async Task TestWithNoServer()
         {
@@ -28,6 +32,9 @@ namespace ClientBCLTest
             Assert.IsTrue(failed);
         }
 
+        /// <summary>
+        /// Testing connecting and receiving messages.
+        /// </summary>
         [TestMethod]
         public async Task TestReceivingAMessage()
         {
@@ -49,6 +56,10 @@ namespace ClientBCLTest
             Assert.IsTrue(messageReceived == testMessage);
         }
 
+        /// <summary>
+        /// Creates a TCP Server on the fly and sends a message to the first client.
+        /// </summary>
+        /// <param name="message">The message to send.</param>
         private async Task TCPSend(string message)
         {
             var listener = new TcpListener(IPAddress.Any, 6060);
