@@ -24,12 +24,9 @@ namespace ClientBCLTest
         [TestMethod]
         public void TestNormalConstructor()
         {
-            string testHostName = "theHostName";
-            int testPortNumber = 1234;
+            ConnectionInfo info = new ConnectionInfo(TestHostName, TestPortNumber);
 
-            ConnectionInfo info = new ConnectionInfo(testHostName, testPortNumber);
-
-            Assert.IsTrue(info.HostName == testHostName && info.PortNumber == testPortNumber);
+            Assert.IsTrue(info.HostName == TestHostName && info.PortNumber == TestPortNumber);
         }
         /// <summary>
         /// Tests the object instantiation based on command line arguments.
@@ -38,8 +35,8 @@ namespace ClientBCLTest
         public void TestFromArgs()
         {
             ConnectionInfo info = ConnectionInfo.FromArgs(new string[] {
-                $"hostName={TestHostName}",
-                $"portNumber={TestPortNumber}",
+                $"{nameof(ConnectionInfo.HostName)}={TestHostName}",
+                $"{nameof(ConnectionInfo.PortNumber)}={TestPortNumber}",
             });
 
             Assert.IsTrue(info.HostName == TestHostName && info.PortNumber == TestPortNumber);
@@ -52,8 +49,8 @@ namespace ClientBCLTest
         {
             Dictionary<string, string> theDictionary = new Dictionary<string, string>();
 
-            theDictionary.Add("hostName", TestHostName);
-            theDictionary.Add("portNumber", TestPortNumber.ToString());
+            theDictionary.Add(nameof(ConnectionInfo.HostName), TestHostName);
+            theDictionary.Add(nameof(ConnectionInfo.PortNumber), TestPortNumber.ToString());
 
             ConnectionInfo info = new ConnectionInfo(theDictionary);
 

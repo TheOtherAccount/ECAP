@@ -9,8 +9,8 @@ public class Program
     /// <summary>
     /// The entry-point method.
     /// </summary>
-    /// <param name="args">An optional command-line arguments in the following format: name=value.
-    /// e.g: hostName=something or portNumber=1234.</param>
+    /// <param name="args">An optional command-line arguments in the following format: PropertyName=value.
+    /// e.g: HostName=something or PortNumber=1234.</param>
     /// <returns></returns>
     public static async Task Main(string[] args)
     {

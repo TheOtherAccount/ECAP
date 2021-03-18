@@ -58,7 +58,7 @@ namespace ClientBCL
         /// <summary>
         /// Instanitates an object with property values based on the specified dictionary.
         /// </summary>
-        /// <param name="args">An optional dictionary that holds the property values.. e.g. hostName
+        /// <param name="args">An optional dictionary that holds the property values.. e.g. HostName
         /// Typically you get it by parsing the command line arguments.</param>
         public ConnectionInfo(Dictionary<string, string> args = null)
         {
@@ -67,8 +67,8 @@ namespace ClientBCL
 
             if (args != null)
             {
-                args.TryGetValue("hostName", out hostName);
-                args.TryGetValue("portNumber", out portNumber);
+                args.TryGetValue(nameof(HostName), out hostName);
+                args.TryGetValue(nameof(PortNumber), out portNumber);
             }
 
             if (string.IsNullOrWhiteSpace(hostName))
