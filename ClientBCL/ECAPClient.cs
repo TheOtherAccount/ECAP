@@ -63,12 +63,12 @@ namespace ClientBCL
         {
             await Task.Delay(500);
 
-            await Connect();
+            await Start();
         }
         /// <summary>
-        /// Tries to establish a connection with the server.
+        /// Starts connecting and waiting for the first message.
         /// </summary>
-        public async Task Connect()
+        public async Task Start()
         {
             try
             {
@@ -88,34 +88,31 @@ namespace ClientBCL
         /// <summary>
         /// Keep receiving messages until the connection is lost.
         /// </summary>
-        private async Task ReceiveMessages()
+        public async Task WaitMessage()
         {
             NetworkStream ns = tcpClient.GetStream();
 
-            while (true)
+            var message = new byte[1];
+            int receivedByteCount = 0;
+
+            try
             {
-                var message = new byte[1];
-                int receivedByteCount = 0;
+                receivedByteCount = await ns.ReadAsync(message, 0, message.Length);
+            }
+            catch
+            {
+                await OnConnectionLost(EventArgs.Empty);
+            }
 
-                try
-                {
-                    receivedByteCount = await ns.ReadAsync(message, 0, message.Length);
-                }
-                catch
-                {
-                    await OnConnectionLost(EventArgs.Empty);
-                }
+            if (receivedByteCount > 0)
+            {
+                string theMessage = Encoding.ASCII.GetString(message, 0, receivedByteCount);
 
-                if (receivedByteCount > 0)
-                {
-                    string theMessage = Encoding.ASCII.GetString(message, 0, receivedByteCount);
-
-                    OnMessageReceived(new MessageEventArgs(theMessage));
-                }
-                else
-                {
-                    await OnConnectionLost(EventArgs.Empty);
-                }
+                await OnMessageReceived(new MessageEventArgs(theMessage));
+            }
+            else
+            {
+                await OnConnectionLost(EventArgs.Empty);
             }
         }
         /// <summary>
@@ -145,17 +142,22 @@ namespace ClientBCL
                 ConnectionEstablished(this, args);
             }
 
-            await ReceiveMessages();
+            await WaitMessage();
         }
         /// <summary>
         /// It just raises the event.
         /// </summary>
         /// <param name="args">An object contains the message that has been received.</param>
-        protected virtual void OnMessageReceived(MessageEventArgs args)
+        protected virtual async Task OnMessageReceived(MessageEventArgs args)
         {
             if (MessageReceived != null)
             {
                 MessageReceived(this, args);
+            }
+
+            if (args.WaitAnotherMessage)
+            {
+                await WaitMessage();
             }
         }
         /// <summary>

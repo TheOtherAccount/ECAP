@@ -7,6 +7,7 @@ namespace ClientBCL
     /// </summary>
     public class MessageEventArgs : EventArgs
     {
+        public bool WaitAnotherMessage { get; set; } = true;
         /// <summary>
         /// The message that has been received.
         /// </summary>
