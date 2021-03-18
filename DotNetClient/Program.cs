@@ -29,6 +29,6 @@ public class Program
         ecapClient.MessageReceived += (sender, e) => Console.Write(e.Message);
 
         // Starting the TCP client
-        await ecapClient.Start();
+        await ecapClient.Connect();
     }
 }

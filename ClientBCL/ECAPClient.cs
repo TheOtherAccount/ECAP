@@ -53,16 +53,9 @@ namespace ClientBCL
             ConnectionInfo = connectionInfo;
         }
         /// <summary>
-        /// Starts the connection to the remove host.
-        /// </summary>
-        public async Task Start()
-        {
-            await Connect();
-        }
-        /// <summary>
         /// Tries to establish a connection with the server.
         /// </summary>
-        private async Task Connect()
+        public async Task Connect()
         {
             try
             {
@@ -124,7 +117,9 @@ namespace ClientBCL
                 ConnectionLost(this, args);
             }
 
-            await Start();
+            await Task.Delay(500);
+
+            await Connect();
         }
         /// <summary>
         /// Raises the event and starts receiving the messages.
