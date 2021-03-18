@@ -29,7 +29,7 @@ docker build -t dotnetclient ECAP\
 
 5. Run the server attached to the current terminal:
 ```sh
-docker run -it --rm --name=pythonserver --network-alias=ecap_server --network=ecap_network pythonserver
+docker run -it --rm --network-alias=ecap_server --network=ecap_network pythonserver
 ```
 
 Now you have the server running but no clients yet; you can run as many clients as you want by using the following:
