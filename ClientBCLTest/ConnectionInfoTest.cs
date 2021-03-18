@@ -4,12 +4,23 @@ using System.Collections.Generic;
 
 namespace ClientBCLTest
 {
+    /// <summary>
+    /// Provides methods for testing the ConnectionInfo class
+    /// </summary>
     [TestClass]
     public class ConnectionInfoTest
     {
+        /// <summary>
+        /// A bad host name for testing.
+        /// </summary>
         private const string TestHostName = "theHostName";
+        /// <summary>
+        /// A port number for testing.
+        /// </summary>
         private const int TestPortNumber = 1234;
-
+        /// <summary>
+        /// Tests the defualt constructor.
+        /// </summary>
         [TestMethod]
         public void TestNormalConstructor()
         {
@@ -20,7 +31,9 @@ namespace ClientBCLTest
 
             Assert.IsTrue(info.HostName == testHostName && info.PortNumber == testPortNumber);
         }
-
+        /// <summary>
+        /// Tests the object instantiation based on command line arguments.
+        /// </summary>
         [TestMethod]
         public void TestFromArgs()
         {
@@ -31,7 +44,9 @@ namespace ClientBCLTest
 
             Assert.IsTrue(info.HostName == TestHostName && info.PortNumber == TestPortNumber);
         }
-
+        /// <summary>
+        /// Tests the object instantiation based on a dictionary.
+        /// </summary>
         [TestMethod]
         public void TestDictionaryConstructor()
         {
@@ -44,13 +59,16 @@ namespace ClientBCLTest
 
             Assert.IsTrue(info.HostName == TestHostName && info.PortNumber == TestPortNumber);
         }
-
+        /// <summary>
+        /// Tests default property values when there is no values specified in the instantiation.
+        /// </summary>
         [TestMethod]
         public void TestDefaultValues()
         {
             ConnectionInfo info = new ConnectionInfo();
 
-            Assert.IsTrue(info.HostName == info.DefaultDebugHostName && info.PortNumber == info.DefaultPortNumber);
+            Assert.IsTrue(info.HostName == info.DefaultDebugHostName
+                && info.PortNumber == info.DefaultPortNumber);
         }
     }
 }
