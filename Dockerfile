@@ -8,10 +8,11 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["DotNetClient.csproj", "DotNetClient/"]
+COPY ["DotNetClient/DotNetClient.csproj", "DotNetClient/"]
+COPY ["ClientBCL/ClientBCL.csproj", "ClientBCL/"]
 RUN dotnet restore "DotNetClient/DotNetClient.csproj"
 COPY . .
-WORKDIR "/src"
+WORKDIR "/src/DotNetClient"
 RUN dotnet build "DotNetClient.csproj" -c Release -o /app/build
 
 FROM build AS publish

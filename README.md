@@ -24,7 +24,7 @@ docker build -t pythonserver ECAP\PythonServer\
 
 4. Build an image for the client app:
 ```sh
-docker build -t dotnetclient ECAP\DotNetClient\
+docker build -t dotnetclient ECAP\
 ```
 
 5. Run the server attached to the current terminal:
